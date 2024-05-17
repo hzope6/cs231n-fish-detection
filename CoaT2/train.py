@@ -13,8 +13,9 @@ def train():
     img_dir = './data/Ozfish-dataset/train/images'
     label_dir = './data/Ozfish-dataset/train/labels'
     dataloader = get_dataloader(img_dir, label_dir, transform=transform)
-
-    model = CoaTObjectDetector(in_channels=3, num_classes=512).cuda()
+    
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    model = CoaTObjectDetector(in_channels=3, num_classes=512).to(device)
     optimizer = optim.Adam(model.parameters(), lr=1e-4)
 
     num_epochs = 10
