@@ -1,7 +1,7 @@
 import torch
 import torch.optim as optim
 import torch.nn.functional as F
-from data.prepare_data.py import get_dataloader, transform
+from data.prepare_data import get_dataloader, transform
 from models.coat import CoaTObjectDetector
 
 def compute_loss(pred_boxes, pred_classes, true_boxes):
