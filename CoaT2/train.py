@@ -30,6 +30,7 @@ def train():
             pred_boxes, pred_classes = model(imgs)
             
             loss = compute_loss(pred_boxes, pred_classes, true_boxes)
+            print(loss)
             loss.backward()
             optimizer.step()
 
