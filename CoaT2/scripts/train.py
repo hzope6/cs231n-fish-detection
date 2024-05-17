@@ -10,8 +10,8 @@ def compute_loss(pred_boxes, pred_classes, true_boxes):
     return bbox_loss + class_loss
 
 def train():
-    img_dir = 'data/images'
-    label_dir = 'data/labels'
+    img_dir = './data/Ozfish-dataset/train/images'
+    label_dir = './data/Ozfish-dataset/train/labels'
     dataloader = get_dataloader(img_dir, label_dir, transform=transform)
 
     model = CoaTObjectDetector(in_channels=3, num_classes=512).cuda()
